@@ -2,6 +2,9 @@
 
 [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/77884?language=javascript) 
 
+### 문제 풀이
+Math.sqrt(num)로 제곱근을 구한 뒤, 이를 활용하여 약수의 개수를 구합니다. 여기에서 `Number.isInteger`를 사용해 숫자가 정수인지 확인할 수 있습니다. 자세한 내용은 [MDN 공식 문서](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger)를 참고하세요.
+
 ### 성능 요약
 
 메모리: 33.5 MB, 시간: 0.19 ms
