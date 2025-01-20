@@ -1,29 +1,21 @@
 function solution(keymap, targets) {
-    let answer = Array(targets.length).fill(0);
-    let minKey = {};
-    
-    keymap.forEach((k) =>{
-        k.split('').forEach((kItem, i) => {
-            if(!minKey[kItem]){
-                minKey[kItem] = i + 1;
-            }else{
-                if(minKey[kItem] > i + 1){
-                    minKey[kItem] = i + 1;
+    let answer = [];
+    targets.forEach((target) => {
+        let indexAnswer = 0;
+        for(let t of target){
+            let prev = Infinity;
+            for(let k of keymap){
+                if(k.indexOf(t) >= 0){
+                    prev = prev > k.indexOf(t) ? k.indexOf(t) : prev;
                 }
             }
-        })
-    })
-    
-     targets.forEach((t, i) => {
-        for (const tItem of t) {
-            if (minKey[tItem]) {
-                answer[i] += minKey[tItem];
-            } else {
-                answer[i] = -1;
+            if(prev === Infinity){
+                indexAnswer = -1;
                 break;
             }
+            indexAnswer += prev + 1;
         }
-    });
-
+        answer.push(indexAnswer);
+    })
     return answer;
 }
