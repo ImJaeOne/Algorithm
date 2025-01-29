@@ -1,5 +1,4 @@
 function solution(s) {
-    var answer = '';
-    answer = s.split('').sort().reverse().join('');
-    return answer;
+    const sArr = s.split('').sort((a, b) => a > b ? -1 : 1);
+    return sArr.join('');
 }
