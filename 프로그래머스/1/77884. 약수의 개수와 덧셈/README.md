@@ -1,13 +1,10 @@
 # [level 1] 약수의 개수와 덧셈 - 77884 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/77884?language=javascript) 
-
-### 문제 풀이
-Math.sqrt(num)로 제곱근을 구한 뒤, 이를 활용하여 약수의 개수를 구합니다. 여기에서 `Number.isInteger`를 사용해 숫자가 정수인지 확인할 수 있습니다. 자세한 내용은 [MDN 공식 문서](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger)를 참고하세요.
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/77884) 
 
 ### 성능 요약
 
-메모리: 33.5 MB, 시간: 0.19 ms
+메모리: 33.5 MB, 시간: 0.17 ms
 
 ### 구분
 
@@ -19,7 +16,7 @@ Math.sqrt(num)로 제곱근을 구한 뒤, 이를 활용하여 약수의 개수�
 
 ### 제출 일자
 
-2024년 12월 08일 00:57:51
+2025년 01월 29일 11:18:58
 
 ### 문제 설명
 
