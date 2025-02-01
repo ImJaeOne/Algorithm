@@ -1,18 +1,11 @@
 function solution(n, m) {
-    var answer = [];
-    var a = Math.min(n, m);
-    var b = Math.max(n, m);
-    for(i = a; answer.length === 0; i--){
-        if(a % i ===0){
-            if(b % i === 0){
+    let answer = [];
+    for(let i = Math.max(n, m); i >= 1 ; i--){
+        if(m % i === 0 && n % i === 0){
             answer.push(i);
-            }
+            break;
         }
     }
-    if(answer[0] !== 1){
-        answer.push(a * b / answer[0]);
-    }else{
-        answer.push(a * b);
-    }
+    answer.push(answer[0] * (n / answer[0]) * (m / answer[0]));
     return answer;
 }
