@@ -1,12 +1,8 @@
 function solution(t, p) {
-    var answer = 0;
-    var t = t.split('');
-    var t_ = [];
-    for(i = 0; i < t.length - p.length + 1; i++){
-        t_ = t.slice(i, i + p.length).join('');
-        if(Number(t_) <= Number(p)){
-            answer += 1;
-        }
+    let answer= 0;
+    for(let i = 0; i <= t.length - p.length; i++){
+        let tArr = t.split('')  
+        tArr.slice(i, i + p.length).join('') <= p && answer++;
     }
     return answer;
 }
