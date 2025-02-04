@@ -1,21 +1,10 @@
 function solution(s) {
-    var answer = [];
-    var ss = [];
-    s = s.split(' ');
-    s.forEach((s, i) => {
-        ss[i] = s.split('');
+    let sArr = s.split(' ');
+    sArr = sArr.map((s) => {
+        return s.split('').map((sItem, i) => {
+            return i % 2 === 0 ? sItem.toUpperCase() : sItem.toLowerCase();
+        })
     })
-    for(i = 0; i < ss.length; i++){
-        for(j = 0; j < ss[i].length; j++){
-            if(j % 2 === 0){
-                answer.push(ss[i][j].toUpperCase());
-            } else{
-                answer.push(ss[i][j].toLowerCase());
-            }
-        }
-        if(i < ss.length - 1){
-            answer.push(' ');
-        }
-    }
-    return answer.join('');
+    sArr = sArr.map((s) => s.join(''));
+    return sArr.join(' ');
 }
