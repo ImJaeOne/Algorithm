@@ -14,7 +14,6 @@ function solution(n) {
         answer.push(Math.floor(n / item));
         n = n % item;
     }
-    console.log(answer)
     answer.reverse();
     return answer.reduce((acc, cur, idx) => {
         for(let i = answer.length - idx; i > 1; i--){
