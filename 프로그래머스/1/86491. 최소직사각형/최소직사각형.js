@@ -1,8 +1,7 @@
 function solution(sizes) {
-    let sizeArr = [];
-    sizes.forEach((size) => sizeArr.push(...size));
-    let max1 = Math.max(...sizeArr);
-    sizes = sizes.map((size) => Math.min(...size));
-    let max2 = Math.max(...sizes)
-    return max1 * max2;
+    sizes = sizes.map((size) => [Math.max(...size), Math.min(...size)]);
+    let answerArr = sizes.reduce((acc, cur) => {
+        return acc = [Math.max(acc[0],cur[0]),Math.max(acc[1], cur[1])];
+    }, [0, 0])
+    return answerArr[0] * answerArr[1]
 }
