@@ -1,13 +1,8 @@
 function solution(sizes) {
-    var answer = 0;
-    var sizesArr = []; 
-    var x = [];
-    var y = [];
-    sizes.forEach((size, i) => {
-        sizesArr[i] = size.sort((a, b) => b - a);
-        x.push(sizesArr[i][0]);
-        y.push(sizesArr[i][1]);
-    })
-    answer = Math.max(...x) * Math.max(...y);
-    return answer;
+    let sizeArr = [];
+    sizes.forEach((size) => sizeArr.push(...size));
+    let max1 = Math.max(...sizeArr);
+    sizes = sizes.map((size) => Math.min(...size));
+    let max2 = Math.max(...sizes)
+    return max1 * max2;
 }
