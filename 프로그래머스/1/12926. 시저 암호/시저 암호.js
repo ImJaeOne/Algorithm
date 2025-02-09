@@ -1,28 +1,22 @@
 function solution(s, n) {
-    var answer = '';
-    var sArr = s.split('');
-    var newArr = [];
-    sArr.forEach((s) => console.log(s.charCodeAt()));
-    sArr.forEach((s) => {
-        if(s.charCodeAt() !== 32){
-            if(s.charCodeAt() >= 97 && s.charCodeAt() <= 122){
-                if(s.charCodeAt() + n > 122){
-                    newArr.push(String.fromCharCode(s.charCodeAt() + n - 122 + 97 - 1))
-                }else {
-                    newArr.push(String.fromCharCode(s.charCodeAt() + n))
-                }
-            }
-            if(s.charCodeAt() >= 65 && s.charCodeAt() <= 90){
-                if(s.charCodeAt() + n > 90){
-                    newArr.push(String.fromCharCode(s.charCodeAt() + n - 90 + 65 - 1))
-                }else {
-                    newArr.push(String.fromCharCode(s.charCodeAt() + n))
-                }
-            }
-        }else{
-            newArr.push(String.fromCharCode(s.charCodeAt()))
+    const upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const lower = 'abcdefghijklmnopqrstuvwxyz';
+
+    function increaseItem(sItem, type) {
+        const itemIndex = type.indexOf(sItem);
+        const len = type.length;
+        const increaseIndex = itemIndex + n > len - 1 ? itemIndex + n - len : itemIndex + n;
+        if (itemIndex !== -1) {
+            return type[increaseIndex]; 
         }
-    });
-    answer = newArr.join('');
-    return answer;
+        return sItem; 
+    }
+
+    const sArr =  s.split('').map((sItem) => {
+        if (upper.includes(sItem)) return increaseItem(sItem, upper);
+        if (lower.includes(sItem)) return increaseItem(sItem, lower);
+        return sItem; 
+    }).join('');
+    
+    return sArr;
 }
