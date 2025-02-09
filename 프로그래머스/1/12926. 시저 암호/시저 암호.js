@@ -5,7 +5,7 @@ function solution(s, n) {
     function increaseItem(sItem, type) {
         const itemIndex = type.indexOf(sItem);
         const len = type.length;
-        const increaseIndex = itemIndex + n > len - 1 ? itemIndex + n - len : itemIndex + n;
+        const increaseIndex = (itemIndex + n) % type.length;
         if (itemIndex !== -1) {
             return type[increaseIndex]; 
         }
