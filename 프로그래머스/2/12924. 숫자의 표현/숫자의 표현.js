@@ -1,14 +1,10 @@
 function solution(n) {
     let answer = 0;
-    const sum = (a, b) => {return (b * (b + 1) / 2) - ((a - 1) * a / 2)};
-    for(let i = 1; i <= n; i++){
-        for(let j = i; j <= n; j++){
-            if(sum(i, j) === n){
-                answer++;
-                break;
-            }
-            if(sum(i, j) > n){
-                break;
+    for (let k = 1; k <= 2 * n; k++) {
+        if (2 * n % k === 0) {  
+            let x = (2 * n - k * (k - 1)) / (2 * k);
+            if (x > 0 && Number.isInteger(x)) {
+                answer++;  
             }
         }
     }
