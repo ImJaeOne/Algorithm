@@ -1,11 +1,12 @@
 function solution(numbers) {
     var answer = [];
-    for(i = 0; i < numbers.length; i++){
-        for(j = i + 1; j < numbers.length; j++){
-            if(!(answer.includes(numbers[i] + numbers[j]))){
-                answer.push(numbers[i] + numbers[j]);
+    let len = numbers.length;
+    for(let i = 0; i < len - 1; i++){
+        for(let j = i + 1; j < len; j++){
+            if(answer.indexOf(numbers[i] + numbers[j]) === - 1){
+                answer.push(numbers[i] + numbers[j])
             }
-        }
+        } 
     }
     return answer.sort((a, b) => a - b);
 }
