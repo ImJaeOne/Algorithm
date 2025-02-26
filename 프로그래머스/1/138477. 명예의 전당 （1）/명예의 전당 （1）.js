@@ -1,11 +1,14 @@
 function solution(k, score) {
-    var answer = [];
-    var scoreArr = [];
-    score.forEach((s, i) => {
-        scoreArr.push(s);
-        scoreArr.sort((a, b) => b - a);
-        scoreArr = scoreArr.splice(0, k);
-        answer.push(scoreArr[scoreArr.length-1]);
+    let answer = [];
+    let sArr = [];
+    score.forEach((s, idx) => {
+        sArr.push(s);
+        sArr.sort((a, b) => b - a);
+        if(idx <= k - 1){
+            answer.push(sArr[idx]);
+        }else{
+            answer.push(sArr[k - 1]);
+        }
     })
     return answer;
 }
