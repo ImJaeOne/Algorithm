@@ -1,28 +1,19 @@
 function solution(n, lost, reserve) {
-    let answer = n;
-    let clothes = Array(n).fill(1); 
-
-    lost.forEach((l) => {
-        clothes[l - 1]--;
-    });
-
-    reserve.forEach((r) => {
-        clothes[r - 1]++;
-    });
-    
-    clothes.forEach((c, i) => {
-        if(clothes[i] === 0){
-            if(clothes[i - 1] === 2){
-                clothes[i - 1]--;
-                clothes[i]++
-            }else if(clothes[i + 1] === 2){
-                clothes[i + 1]--;
-                clothes[i]++;
-            }else{
-                answer--;
+    const nArr = Array.from({length: n}, () => 1);
+    lost.forEach((l) => nArr[l - 1] = 0);
+    reserve.forEach((r) => nArr[r - 1] = nArr[r - 1] + 1);
+    nArr.forEach((n, idx) => {
+        if(n === 0){
+            if(nArr[idx - 1] > 1){
+                nArr[idx] = 1;
+                nArr[idx - 1] = nArr[idx - 1] - 1;
+            }else if(nArr[idx + 1] > 1){
+                nArr[idx] = 1;
+                nArr[idx + 1] = nArr[idx + 1] - 1;
             }
         }
     })
-    
+    let answer = 0;
+    nArr.forEach((n) => n > 0 && answer++);
     return answer;
 }
