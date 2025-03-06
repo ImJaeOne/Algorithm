@@ -1,18 +1,13 @@
 function solution(a, b, n) {
-    var answer = 0;
-    var plus = 0;
-    var dummy = 0;
-    while(n >= a){
-        if(n % a === 0){
-            plus = b * (n / a);
-            n = plus;
-            answer += plus;
-        }else{
-            plus = b * (Math.floor(n / a));
-            dummy = n % a;
-            n = plus + dummy;
-            answer += plus;
-        }
+    let answer = 0;
+    let empty = n;
+    let remain = 0;
+    
+    while(empty / a >= 1){
+        remain = empty % a;
+        answer += Math.floor(empty / a) * b;
+        empty = Math.floor(empty / a) * b + remain;
     }
+    
     return answer;
 }
