@@ -1,32 +1,24 @@
 function solution(nums) {
+    let sumArr = [];
+    let len = nums.length;
+    for(let i = 0; i < len - 2; i++){
+        for(let j = i + 1; j < len - 1; j++){
+            for(let k = j + 1; k < len; k++){
+                sumArr.push(nums[i] + nums[j] + nums[k]);
+            }
+        }
+    }
     let answer = 0;
-    let test = [];
-    let arr = []
-    
-    function demical(n){
-        for(i = 1; i <= n ; i++){
-            if(n % i === 0){
-                test.push(i);
+     sumArr.forEach((n) => {
+        let isPrime = true; 
+        for (let i = 2; i * i <= n; i++) {
+            if (n % i === 0) {
+                isPrime = false;
+                break;
             }
         }
-        if(test[1] === n){
-            answer += 1;
-        }
-        test = [];
-    }
-    
-    function addThree(array){
-        for(i = 0; i < array.length - 2; i++){
-            for(j = i + 1; j < array.length - 1; j++){
-                for(k = j + 1; k < array.length; k++){
-                    arr.push(array[i] + array[j] + array[k]);
-                }
-            }
-        }
-    }
-    
-    addThree(nums);
-    arr.forEach((a) => demical(a));
-    
+        if (isPrime) answer++; 
+    });
+
     return answer;
 }
